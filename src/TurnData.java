@@ -5,13 +5,27 @@ public class TurnData
 	public boolean isGameOver = false;
 	public int turnNumber = 0;
 	
-	//returns turn number
+	void setHasGameStarted(boolean newHasGameStarted)
+	{
+		hasGameStarted = newHasGameStarted;
+	}
+	Boolean getHasGameStarted() 
+	{
+		return hasGameStarted;
+	}
+	void setIsGameOver(Boolean newIsGameOver)
+	{
+		isGameOver = newIsGameOver;
+	}
+	Boolean getIsGameOver()
+	{
+		return isGameOver;
+	}
 	public int getTurn()
 	{	
 		System.out.println("the current turn is " + turnNumber);
 		return turnNumber;
 	}
-	//increments turn number
 	public void nextTurn()
 	{
 		turnNumber += 1;
