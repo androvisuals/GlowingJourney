@@ -142,6 +142,7 @@ public class Main extends Application implements EventHandler<ActionEvent>
 	{
 		if (event.getSource()==btn_0) 
 		{
+			
 			System.out.println("btn_0 was pressed");//move this to the gui part
 		}
 		
