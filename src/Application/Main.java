@@ -89,13 +89,17 @@ public class Main extends Application implements EventHandler<ActionEvent>
 		//this is the game loop, game over false means keep playing
 		while(isGameOver == false)
 		{
-			launch(args);//java fx starts from this, freeze game loop for now
+			
 			shipBattle.testToHit();
 			playerShip.getShipInfo();
 			enemyShip.getShipInfo();
+			launch(args);//java fx starts from this, freeze game loop for now
 			userInput.getUserInput();
 			
+			
+			
 		}
+		
 //		if (isGameOver == true) 
 //		{
 //			System.exit(0);
@@ -125,11 +129,7 @@ public class Main extends Application implements EventHandler<ActionEvent>
 			primaryStage.setScene(scene);
 			primaryStage.show();
 			
-//			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
-//			Scene scene = new Scene(root,400,400);
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-//			primaryStage.setScene(scene);
-//			primaryStage.show();
+
 		} catch(Exception e) 
 		{
 			e.printStackTrace();
@@ -142,7 +142,7 @@ public class Main extends Application implements EventHandler<ActionEvent>
 	{
 		if (event.getSource()==btn_0) 
 		{
-			System.out.println("btn_0 was pressed");//move thisto the gui part
+			System.out.println("btn_0 was pressed");//move this to the gui part
 		}
 		
 	}
