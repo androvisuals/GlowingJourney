@@ -1,7 +1,7 @@
 
 public class CrewMember 
 {
-	private String memberName;
+	private String crewMemberName;
 	private Integer health = 10;
 	private Integer attack = 0 ;
 	private Integer defense = 0;
@@ -12,6 +12,14 @@ public class CrewMember
 		health = initHealth;
 		attack = initAttack;
 		defense = initDefense;
+	}
+	void setCrewMemberName(String newCrewMemberName)
+	{
+		crewMemberName = newCrewMemberName;
+	}
+	String getCrewMemberName()
+	{
+		return crewMemberName;
 	}
 	Integer getHealth()
 	{
