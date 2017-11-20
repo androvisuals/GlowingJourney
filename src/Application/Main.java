@@ -11,40 +11,13 @@ import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
-
+import javafx.event.ActionEvent;
+import javafx.event.EventHandler;;
 
 //to use another class create an object of it.
-public class Main extends Application
+public class Main extends Application implements EventHandler<ActionEvent>
 {
-	Button btn;
-	///////////////////////////GUI WITH JAVAFX/////////////////////////////////////////////
-	//so a window is a STAGE in javaFX, the contents of the window are the scenes
-	@Override
-	public void start(Stage primaryStage) 
-	{
-		try 
-		{
-			primaryStage.setTitle("The Game window");//sets window title
-			btn = new Button();//makes a new button
-			btn.setText("click me");//sets text to click me 
-			
-			StackPane layout = new StackPane();//Stackpane is a layout system
-			layout.getChildren().add(btn);//add button to layout
-			Scene scene = new Scene(layout,300,300);
-			primaryStage.setScene(scene);
-			primaryStage.show();
-			
-//			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
-//			Scene scene = new Scene(root,400,400);
-//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
-//			primaryStage.setScene(scene);
-//			primaryStage.show();
-		} catch(Exception e) 
-		{
-			e.printStackTrace();
-		}
-	}
-	///////////////////////////GUI END/////////////////////////////////////////////
+	
 	//to do crew battle system
 	//ship battle system.
 	//Check out simple GUI (later steps for now). ?? JAVAFX seems to be pretty awesome
@@ -112,11 +85,11 @@ public class Main extends Application
 		System.out.println("////////////////////////");
 		//gameTurn.isGameOver = false;
 		
-		launch(args);//java fx starts from this, freeze gmae loop for now
+		
 		//this is the game loop, game over false means keep playing
 		while(isGameOver == false)
 		{
-			
+			launch(args);//java fx starts from this, freeze game loop for now
 			shipBattle.testToHit();
 			playerShip.getShipInfo();
 			enemyShip.getShipInfo();
@@ -131,5 +104,48 @@ public class Main extends Application
 		//fix bug where hull damage info isn't being updated
 		
 	}
+	
+	///////////////////////////GUI WITH JAVAFX/////////////////////////////////////////////
+	Button btn_0;
+	
+	//so a window is a STAGE in javaFX, the contents of the window are the scenes
+	@Override
+	public void start(Stage primaryStage) 
+	{
+		try 
+		{
+			primaryStage.setTitle("The Game window");//sets window title
+			btn_0 = new Button();//makes a new button
+			btn_0.setText("click me");//sets text to click me 
+			btn_0.setOnAction(this);//this means i could make a whole new class for handling events, do later
+			
+			StackPane layout = new StackPane();//Stackpane is a layout system
+			layout.getChildren().add(btn_0);//add button to layout
+			Scene scene = new Scene(layout,400,300);
+			primaryStage.setScene(scene);
+			primaryStage.show();
+			
+//			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
+//			Scene scene = new Scene(root,400,400);
+//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+//			primaryStage.setScene(scene);
+//			primaryStage.show();
+		} catch(Exception e) 
+		{
+			e.printStackTrace();
+		}
+	}
 
+	//to make this i went to source > override/implement methods
+	@Override
+	public void handle(ActionEvent event) 
+	{
+		if (event.getSource()==btn_0) 
+		{
+			System.out.println("btn_0 was pressed");//move thisto the gui part
+		}
+		
+	}
+	
+	///////////////////////////GUI END/////////////////////////////////////////////
 }
