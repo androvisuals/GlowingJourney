@@ -1,34 +1,49 @@
 package application;
 
 
+//import java.awt.Button;//this conflicts with javafx button, leave for now
 import java.util.*;
 import javafx.*;
+import javafx.scene.control.Button;
 import javafx.application.Application;
 import javafx.fxml.FXMLLoader;
 import javafx.scene.Scene;
 import javafx.scene.layout.BorderPane;
+import javafx.scene.layout.StackPane;
 import javafx.stage.Stage;
 
 
 //to use another class create an object of it.
 public class Main extends Application
 {
+	Button btn;
 	///////////////////////////GUI WITH JAVAFX/////////////////////////////////////////////
+	//so a window is a STAGE in javaFX, the contents of the window are the scenes
 	@Override
 	public void start(Stage primaryStage) 
 	{
 		try 
 		{
-			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
-			Scene scene = new Scene(root,400,400);
-			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setTitle("The Game window");//sets window title
+			btn = new Button();//makes a new button
+			btn.setText("click me");//sets text to click me 
+			
+			StackPane layout = new StackPane();//Stackpane is a layout system
+			layout.getChildren().add(btn);//add button to layout
+			Scene scene = new Scene(layout,300,300);
 			primaryStage.setScene(scene);
 			primaryStage.show();
-		} catch(Exception e) {
+			
+//			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
+//			Scene scene = new Scene(root,400,400);
+//			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+//			primaryStage.setScene(scene);
+//			primaryStage.show();
+		} catch(Exception e) 
+		{
 			e.printStackTrace();
 		}
 	}
-
 	///////////////////////////GUI END/////////////////////////////////////////////
 	//to do crew battle system
 	//ship battle system.
@@ -39,7 +54,7 @@ public class Main extends Application
 	
 	public static void main(String[] args) 
 	{	
-		launch(args);
+		
 		//set game over to false so the game loop runs
 		boolean isGameOver = false;
 		RandomGenerators randNum = new RandomGenerators();
@@ -97,9 +112,11 @@ public class Main extends Application
 		System.out.println("////////////////////////");
 		//gameTurn.isGameOver = false;
 		
+		launch(args);//java fx starts from this, freeze gmae loop for now
 		//this is the game loop, game over false means keep playing
 		while(isGameOver == false)
 		{
+			
 			shipBattle.testToHit();
 			playerShip.getShipInfo();
 			enemyShip.getShipInfo();
@@ -112,6 +129,7 @@ public class Main extends Application
 //		}
 		//TODO write game over here
 		//fix bug where hull damage info isn't being updated
+		
 	}
 
 }
