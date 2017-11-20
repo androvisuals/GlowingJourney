@@ -1,4 +1,4 @@
-package Application;
+package application;
 import java.util.*;
 //Later on break this down into classes for weapons, shields, hull etc.
 //ship is becoming bloated with ship qualities.

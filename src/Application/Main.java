@@ -1,16 +1,35 @@
-package Application;
+package application;
 
 
 import java.util.*;
 import javafx.*;
+import javafx.application.Application;
+import javafx.fxml.FXMLLoader;
+import javafx.scene.Scene;
+import javafx.scene.layout.BorderPane;
+import javafx.stage.Stage;
 
 
 //to use another class create an object of it.
-public class Main 
+public class Main extends Application
 {
 	///////////////////////////GUI WITH JAVAFX/////////////////////////////////////////////
-	
-///////////////////////////GUI END/////////////////////////////////////////////
+	@Override
+	public void start(Stage primaryStage) 
+	{
+		try 
+		{
+			BorderPane root = (BorderPane)FXMLLoader.load(getClass().getResource("Sample.fxml"));
+			Scene scene = new Scene(root,400,400);
+			scene.getStylesheets().add(getClass().getResource("application.css").toExternalForm());
+			primaryStage.setScene(scene);
+			primaryStage.show();
+		} catch(Exception e) {
+			e.printStackTrace();
+		}
+	}
+
+	///////////////////////////GUI END/////////////////////////////////////////////
 	//to do crew battle system
 	//ship battle system.
 	//Check out simple GUI (later steps for now). ?? JAVAFX seems to be pretty awesome
@@ -20,7 +39,7 @@ public class Main
 	
 	public static void main(String[] args) 
 	{	
-		
+		launch(args);
 		//set game over to false so the game loop runs
 		boolean isGameOver = false;
 		RandomGenerators randNum = new RandomGenerators();
