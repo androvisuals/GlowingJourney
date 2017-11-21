@@ -27,6 +27,8 @@ public class Main extends Application implements EventHandler<ActionEvent>
 	
 	public static void main(String[] args) 
 	{	
+		//Javafx lauch it
+		launch(args);//java fx starts from this, freeze game loop for now
 		
 		//set game over to false so the game loop runs
 		boolean isGameOver = false;
@@ -93,7 +95,6 @@ public class Main extends Application implements EventHandler<ActionEvent>
 			shipBattle.testToHit();
 			playerShip.getShipInfo();
 			enemyShip.getShipInfo();
-			launch(args);//java fx starts from this, freeze game loop for now
 			userInput.getUserInput();
 			
 			

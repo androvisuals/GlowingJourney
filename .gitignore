@@ -22,7 +22,7 @@
 hs_err_pid*
 
 #adding my own ignore extensions
-*.classpath
-*.project
+#*.classpath
+#*.project
 *.settings
-*.bin
+#*.bin
