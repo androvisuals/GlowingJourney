@@ -1,8 +1,35 @@
 package application;
 import java.util.*;
 
+/*
+ what's an encounter for now ?
+ An encounter can be a trader/repair station
+ An encounter can be a ship battle
+ An encounter can be a crew battle.
+ 
+ It's made up of
+ 1- an index
+ 2- a flavor string
+ 3- a type > trader > ship battle > crew battle
+ 4 - if its a trader then repair ship hull for now and give  a crew member
+ 5 - if its a ship battle resolve until either ship is destroyed
+ 6 - if it's a crew battle resolve until it s destroyed.
+ 
+ 7 - problems
+  This needs to be broken into classes. But I have a lot already
+  I already have crew members, need to generate one dynamically
+  I already have ships, need to generate them dynamically
+  Trader class still needs to be made , it'll call add crew member and fix hull (random amount)
+  
+  Flavor text type it out
+  
+  lets try and get it made now in this encounter database
+ */
 public class EncounterDatabase 
-{
+{	
+	private Crew tempCrew;
+	private Ship tempShip;
+	
 	private Integer currentEncounter = 0;
 	ArrayList<String> encounterList = new ArrayList <String> ();
 	
@@ -63,11 +90,5 @@ public class EncounterDatabase
 			
 		}
 	}
-	
-//	void nextEncounter()
-//	{
-//		
-//	}
-	
 	
 }

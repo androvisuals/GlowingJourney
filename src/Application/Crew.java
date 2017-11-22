@@ -7,13 +7,17 @@ public class Crew
 	//make an array list to hold crew, can dynamic
 	private ArrayList<CrewMember> crewMembers = new ArrayList<CrewMember>(); 
 	//constructor requires a crew amount to be created when its declared
-	public Crew(String newCrewType, int crewAmount) 
+	public Crew(String newCrewType, int crewAmount) //maybe drop the constructor ??
 	{
 		crewType = newCrewType;
 		for (int i =0; i < crewAmount; i++)
 		{
 			addCrewMember();
 		}
+	}
+	void setCrewType(String newCrewType)
+	{
+		crewType = newCrewType;
 	}
 	String getCrewType()
 	{
@@ -59,4 +63,5 @@ public class Crew
 		System.out.println("Crew total attack is  " + getCrewAttack());
 		System.out.println("Crew total defense is  " + getCrewDefense());
 	}
+	
 }
