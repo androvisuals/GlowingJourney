@@ -124,107 +124,8 @@ public class Ship
 //		Crew crew = new Crew("Empty crew",0);
 //	}
 
-	Ship shipGenerator(int key)
-	{
-		Ship ship = new Ship();
-		if (key == 0) 
-		{
-			shipCrew = new Crew("Weak player",2);
-			ship.setShipName("weak player ship");
-			ship.setCrewType("Weak player Crew");
-			ship.setHull(10);
-			ship.setShields(4);
-			ship.setWeaponAccuracy(3);
-			ship.setWeaponDamage(3);
-			ship.setEvasion(3);
-			ship.setChanceToHit(2);
-			return ship;
-		}
-		
 	
-		else if (key == 1) 
-		{
-			shipCrew = new Crew("Strong player",4);
-			
-			ship.setShipName("Strong player ship");
-			ship.setCrewType("Strong player Crew");
-			ship.setHull(15);
-			ship.setShields(6);
-			ship.setWeaponAccuracy(4);
-			ship.setWeaponDamage(4);
-			ship.setEvasion(3);
-			ship.setChanceToHit(3);
-			return ship;
-		}
-		else if (key ==2) 
-		{
-			shipCrew = new Crew("Weak pirates",2);
-			
-			ship.setShipName("Weak pirate ship");
-			ship.setCrewType("Weak pirate Crew");
-			ship.setHull(6);
-			ship.setShields(2);
-			ship.setWeaponAccuracy(2);
-			ship.setWeaponDamage(2);
-			ship.setEvasion(2);
-			ship.setChanceToHit(2);
-			return ship;
-			
-		}
-		else if (key ==3) 
-		{
-			shipCrew = new Crew("Strong pirates",4);
-			
-			ship.setShipName("Strong pirate ship");
-			ship.setCrewType("Strong pirate Crew");
-			ship.setHull(10);
-			ship.setShields(4);
-			ship.setWeaponAccuracy(3);
-			ship.setWeaponDamage(3);
-			ship.setEvasion(3);
-			ship.setChanceToHit(3);
-			return ship;
-		}
-		return ship;
-		
-	}
-//	Ship enemyShipGenerator(int key)//add crew later
-//	{	
-//		Ship enemyShip =new Ship();//= new Ship("Ship not generated","Crew Not generated",4, 6, 2, 2, 2, 3,2);
-//		
-//		
-//		if (key ==0) 
-//		{
-//			shipCrew = new Crew("Weak pirates",2);
-//			
-//			//ship.setShipName("Weak pirate ship");
-//			//ship.setCrewType("Weak pirate Crew");
-//			ship.setHull(6);
-//			ship.setShields(2);
-//			ship.setWeaponAccuracy(2);
-//			ship.setWeaponDamage(2);
-//			ship.setEvasion(2);
-//			ship.setChanceToHit(2);
-//			
-//			
-//		}
-//		else if (key ==1) 
-//		{
-//			shipCrew = new Crew("Strong pirates",4);
-//			
-//			ship.setShipName("Strong pirate ship");
-//			ship.setCrewType("Strong pirate Crew");
-//			ship.setHull(10);
-//			ship.setShields(4);
-//			ship.setWeaponAccuracy(3);
-//			ship.setWeaponDamage(3);
-//			ship.setEvasion(3);
-//			ship.setChanceToHit(3);
-//			
-//		}
-//		return ship;
-//		
-//	}
+
 	void getShipInfo()
 	{
 		System.out.println("///////////" + shipName.toUpperCase( )+ " DATA///////////////");
@@ -238,9 +139,6 @@ public class Ship
 		System.out.println(shipWeaponDamage + shipEvasion + shipChanceToHit); 
 		//System.out.println("Total crew members is  " + getCrew().getCrewSize());
 	}
-//	Ship generateShipTypeForEncounter(Integer key)
-//	{
-//		
-//	}
+
 	
 }
