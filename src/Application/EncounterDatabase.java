@@ -27,8 +27,8 @@ import java.util.*;
  */
 public class EncounterDatabase 
 {	
-	private Crew tempCrew;
-	private Ship tempShip;
+//	private Crew tempCrew;
+//	private Ship tempShip;
 	
 	private Integer currentEncounter = 0;
 	ArrayList<String> encounterList = new ArrayList <String> ();

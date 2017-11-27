@@ -3,6 +3,9 @@ package application;
 
 //import java.awt.Button;//this conflicts with javafx button, leave for now
 import java.util.*;
+
+import org.omg.CosNaming.IstringHelper;
+
 import javafx.*;
 import javafx.scene.control.Button;
 import javafx.application.Application;
@@ -19,7 +22,7 @@ import javafx.event.EventHandler;;
 public class Main extends Application implements EventHandler<ActionEvent>
 {
 
-	
+
 	///////////////////////////GUI WITH JAVAFX/////////////////////////////////////////////
 	Button btn_0 = new Button();
 	Text text_0 ;
@@ -68,63 +71,83 @@ public class Main extends Application implements EventHandler<ActionEvent>
 	public static void main(String[] args) 
 	{	
 		
-		//Javafx lauch it
-//		launch(args);//java fx starts from this, freeze game loop for now
-		
-		//set game over to false so the game loop runs
-		boolean isGameOver = false;
-		RandomGenerators randNum = new RandomGenerators();
+		//Javafx launch it
+		//java fx starts from this, freeze game loop for now
+//		launch(args);
 		TurnData gameTurn = new TurnData();
 		UserInput userInput = new UserInput();
+		RandomGenerators randNum = new RandomGenerators();//Used for any random Number generation in main
+		
 		String currentEncounter = "";
 		//declares encounter size for now, can make a difficulty level later . String to array detail
 		//EncounterDatabase encounterDatabase = new EncounterDatabase(10);
 
-		System.out.println("Random number output is " + randNum.randomGenerator(8));
+		//System.out.println("Random number output is " + randNum.randomGenerator(8));
 		//generate encounters first
 		//currentEncounter =  encounterDatabase.getEncounter(15);
 		
 		//String keyReturned = encounter.getEncounters(0, encounter);
+		//Ships and crew should be moved to the encounter generator section
 		/////////////////////PLAYER SHIP AND CREW///////////////////////
-		ShipGenerator shipGenerator = new ShipGenerator();//should be moved out of main into EncounterDatabase.here for testing purposes
-		Ship playerShip = shipGenerator.shipGenerator(0);//abstraction use key to generate ship
-		playerShip.getShipInfo();
-		Crew playerCrew =  playerShip.getCrew();
-		playerCrew.getCrewInfo();
+		//should be moved out of main into EncounterDatabase.here for testing purposes
+		ShipGenerator shipGenerator = new ShipGenerator();
+		shipGenerator.setShipArraySize(4);
+		shipGenerator.generateShipArray();
+		//shipGenerator.getShipArrayData();
 		
-		/////////////////////ENEMY SHIP AND CREW///////////////////////
-		Ship enemyShip = shipGenerator.shipGenerator(3);//abstraction use key to generate ship
-		enemyShip.getShipInfo();
-		Crew enemyCrew =  enemyShip.getCrew();
-		enemyCrew.getCrewInfo();
-		
-		
-		ShipBattle shipBattle = new ShipBattle(playerShip, enemyShip);
+//		Ship playerShip = shipGenerator.shipGenerator(0);//abstraction use key to generate ship
+//		playerShip.getShipInfo();
+//		Crew playerCrew =  playerShip.getCrew();
+//		playerCrew.getCrewInfo();
+//		
+//		/////////////////////ENEMY SHIP AND CREW///////////////////////
+//		Ship enemyShip = shipGenerator.shipGenerator(3);//abstraction use key to generate ship
+//		enemyShip.getShipInfo();
+//		Crew enemyCrew =  enemyShip.getCrew();
+//		enemyCrew.getCrewInfo();
+//		
+//		
+//		ShipBattle shipBattle = new ShipBattle(playerShip, enemyShip);//keep in main
 		
 		System.out.println("////////////////////");
 		
-		//generates a crew per ship, note the getCrew method
-		
-		System.out.println("Current encounter string is " + currentEncounter);
+
+		//prints once
+		System.out.println("Main before game loop");
 		
 		System.out.println("////////////////////////");
-
+		
+		//set game over to false so the game loop runs
+		boolean isGameRunning = true;
 		//this is the game loop, game over false means keep playing
-		while(isGameOver == false)
+		//need to link turn number to index of encounter database
+		while (isGameRunning )
 		{
-			shipBattle.testToHit();
-			playerShip.getShipInfo();
-			enemyShip.getShipInfo();
 			userInput.getUserInput();
+			
+			System.out.println("While loop is running");
+			//userInput.gameInstructions();
+			//shipBattle.testToHit();
+			//playerShip.getShipInfo();
+			//enemyShip.getShipInfo();
+			//userInput.getUserInput();
+		
+			//main(null);//loops main BUT resets it all :-(
+			
 		}
 		
-//		if (isGameOver == true) 
-//		{
-//			System.exit(0);
-//		}
+		System.out.println("Main AFTER game loop");
+		
+		
+		if (isGameRunning == false) 
+		{
+			System.exit(0);
+		}
 		// TODO write game over here
 		//fix bug where hull damage info isn't being updated
 		
 	}
+	
 
 }
+

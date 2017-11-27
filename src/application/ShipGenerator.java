@@ -1,10 +1,26 @@
 package application;
 
+import java.util.ArrayList;
+
 public class ShipGenerator 
 {
 	//generates a ship based  based upon key value
-	Ship ship = new Ship();
-	Crew shipCrew ;//= new Crew(" Empty crew type", 0);//Variable declaration. means i can make an object now and assign values to it later.
+	private Ship ship = new Ship();
+	private Crew shipCrew ;//= new Crew(" Empty crew type", 0);//Variable declaration. means i can make an object now and assign values to it later.
+	
+	public ArrayList<Ship> shipArray = new ArrayList<Ship>();
+	private int shipArraySize = 3;
+	
+	void setShipArraySize(int value)
+	{
+		shipArraySize = value;
+	}
+	int getShipArraySize()
+	{
+		return shipArraySize;
+	}
+	
+	
 	Ship shipGenerator(int key)
 	{
 		
@@ -69,5 +85,29 @@ public class ShipGenerator
 		}
 		return ship;
 		
+	}
+	
+	void generateShipArray()
+	{
+		for (int i = 0; i < shipArraySize;i++)
+		{
+			shipArray.add(shipGenerator(i));
+			shipArray.get(i).getShipInfo();
+		}	
+	}
+	Ship getShipFromArray (int key)
+	{
+		generateShipArray();
+		//System.out.println("the ship generated from array was " + shipArraySize.get(key));
+		shipArray.get(key).getShipInfo();
+		return shipArray.get(key);
+		
+	}
+	void getShipArrayData()
+	{
+		for (int i = 0; i < shipArray.size(); i++) 
+		{
+			shipArray.get(i).getShipInfo();
+		}
 	}
 }
